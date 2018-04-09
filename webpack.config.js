@@ -1,31 +1,20 @@
 const path = require('path');
-module.exports = {
-  entry: path.join(__dirname, 'src', 'index'),
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const config = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  module: {
-    rules: [{
-      test: /.jsx?$/,
-      include: [
-        path.resolve(__dirname, 'src')
-      ],
-      exclude: [
-        path.resolve(__dirname, 'node_modules'),
-        path.resolve(__dirname, 'bower_components')
-      ],
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015']
-      }
-    }]
-  },
-  resolve: {
-    extensions: ['.json', '.js', '.jsx', '.css']
-  },
-  devtool: 'source-map',
-  devServer: {
-    publicPath: path.join('/dist/')
-  }
-};
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    })
+  ],
+}
+module.exports = config;
