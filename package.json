@@ -1,38 +1,46 @@
 {
   "name": "webpack-note",
+  "sideEffects": [
+    "./src/some-side-effectful-file.js",
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "server": "node server.js",
+    "Banalysis": "webpack --profile --json > stats.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luluyiluchangtong/webpack-note.git"
   },
   "keywords": [],
-  "author": "lu <luzhengyong1@outlook.com> (http://llylct.com/)",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/luluyiluchangtong/webpack-note/issues"
   },
   "homepage": "https://github.com/luluyiluchangtong/webpack-note#readme",
-  "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
-    "csv-loader": "^2.1.1",
-    "file-loader": "^1.1.11",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.20.3",
-    "webpack": "^2.7.0",
-    "webpack-cli": "^2.0.14",
-    "xml-loader": "^1.2.1"
-  },
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^1.0.1",
+    "csv-loader": "^3.0.2",
+    "express": "^4.16.4",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4",
+    "xml-loader": "^1.2.1"
   }
 }
